@@ -1,0 +1,99 @@
+[2022-04-29 08:20:11,373][kospeech.utils][INFO] - audio:
+  audio_extension: pcm
+  sample_rate: 16000
+  frame_length: 20
+  frame_shift: 10
+  normalize: true
+  del_silence: true
+  feature_extract_by: kaldi
+  time_mask_num: 4
+  freq_mask_num: 2
+  spec_augment: true
+  input_reverse: false
+  transform_method: fbank
+  n_mels: 80
+  freq_mask_para: 18
+model:
+  architecture: deepspeech2
+  teacher_forcing_ratio: 1.0
+  teacher_forcing_step: 0.0
+  min_teacher_forcing_ratio: 1.0
+  dropout: 0.3
+  bidirectional: false
+  joint_ctc_attention: false
+  max_len: 400
+  use_bidirectional: true
+  rnn_type: gru
+  hidden_dim: 1024
+  activation: hardtanh
+  num_encoder_layers: 3
+train:
+  dataset: kspon
+  dataset_path: /content/gdrive/MyDrive/음소인식project/project_dataset/kspone_relable
+  transcripts_path: /content/gdrive/MyDrive/음소인식project/project_dataset/kspone_relable/transcripts.txt
+  output_unit: character
+  batch_size: 32
+  save_result_every: 1000
+  checkpoint_every: 5000
+  print_every: 10
+  mode: train
+  num_workers: 4
+  use_cuda: true
+  num_threads: 2
+  init_lr_scale: 0.01
+  final_lr_scale: 0.05
+  max_grad_norm: 400
+  weight_decay: 1.0e-05
+  total_steps: 200000
+  seed: 777
+  resume: true
+  optimizer: adam
+  init_lr: 1.0e-06
+  final_lr: 1.0e-06
+  peak_lr: 0.0001
+  warmup_steps: 400
+  num_epochs: 70
+  reduction: mean
+  lr_scheduler: tri_stage_lr_scheduler
+
+[2022-04-29 08:20:11,408][kospeech.utils][INFO] - Operating System : Linux 5.4.188+
+[2022-04-29 08:20:11,409][kospeech.utils][INFO] - Processor : x86_64
+[2022-04-29 08:20:11,410][kospeech.utils][INFO] - device : Tesla T4
+[2022-04-29 08:20:11,410][kospeech.utils][INFO] - CUDA is available : True
+[2022-04-29 08:20:11,411][kospeech.utils][INFO] - CUDA version : 11.3
+[2022-04-29 08:20:11,411][kospeech.utils][INFO] - PyTorch version : 1.11.0+cu113
+[2022-04-29 08:20:11,426][kospeech.utils][INFO] - split dataset start !!
+[2022-04-29 08:20:11,463][kospeech.utils][INFO] - Applying Spec Augmentation...
+[2022-04-29 08:20:11,465][kospeech.utils][INFO] - Applying Spec Augmentation...
+[2022-04-29 08:20:11,467][kospeech.utils][INFO] - Applying Spec Augmentation...
+[2022-04-29 08:20:11,468][kospeech.utils][INFO] - Applying Spec Augmentation...
+[2022-04-29 08:20:11,470][kospeech.utils][INFO] - split dataset complete !!
+[2022-04-29 08:20:11,493][kospeech.utils][INFO] - load checkpoints
+../../../outputs/2202-04-30/22-41-00/trainer_states.pt
+../../../outputs/2202-04-30/22-41-00/model.pt
+[2022-04-29 08:20:16,559][kospeech.utils][INFO] - start
+[2022-04-29 08:20:16,559][kospeech.utils][INFO] - Epoch 33 start
+[2022-04-29 08:20:38,700][kospeech.utils][INFO] - step:   10/  62, loss: 1.459029, cer: 0.43, elapsed: 22.13s 0.37m 0.01h, lr: 0.000100
+[2022-04-29 08:20:57,769][kospeech.utils][INFO] - step:   20/  62, loss: 1.553955, cer: 0.43, elapsed: 19.07s 0.69m 0.01h, lr: 0.000100
+[2022-04-29 08:21:17,120][kospeech.utils][INFO] - step:   30/  62, loss: 1.472952, cer: 0.43, elapsed: 19.35s 1.01m 0.02h, lr: 0.000100
+[2022-04-29 08:21:37,926][kospeech.utils][INFO] - step:   40/  62, loss: 1.772192, cer: 0.43, elapsed: 20.80s 1.36m 0.02h, lr: 0.000100
+[2022-04-29 08:21:58,573][kospeech.utils][INFO] - step:   50/  62, loss: 1.676505, cer: 0.43, elapsed: 20.65s 1.70m 0.03h, lr: 0.000100
+[2022-04-29 08:22:19,825][kospeech.utils][INFO] - step:   60/  62, loss: 1.252580, cer: 0.43, elapsed: 21.25s 2.05m 0.03h, lr: 0.000100
+[2022-04-29 08:22:26,588][kospeech.utils][INFO] - save checkpoints
+/content/gdrive/MyDrive/음소인식project/kospeech-latest/outputs/2022-04-29/08-20-11/2022_04_29_08_22_22-trainer_states.pt
+/content/gdrive/MyDrive/음소인식project/kospeech-latest/outputs/2022-04-29/08-20-11/2022_04_29_08_22_22-model.pt
+[2022-04-29 08:22:26,589][kospeech.utils][INFO] - train() completed
+[2022-04-29 08:22:29,628][kospeech.utils][INFO] - save checkpoints
+/content/gdrive/MyDrive/음소인식project/kospeech-latest/outputs/2022-04-29/08-20-11/2022_04_29_08_22_26-trainer_states.pt
+/content/gdrive/MyDrive/음소인식project/kospeech-latest/outputs/2022-04-29/08-20-11/2022_04_29_08_22_26-model.pt
+[2022-04-29 08:22:29,629][kospeech.utils][INFO] - Epoch 33 (Training) Loss 0.0001 CER 0.4252
+[2022-04-29 08:22:29,630][kospeech.utils][INFO] - validate() start
+[2022-04-29 08:22:30,084][kospeech.utils][INFO] - validate() completed
+[2022-04-29 08:22:30,084][kospeech.utils][INFO] - Epoch 33 CER 0.4249
+[2022-04-29 08:22:30,355][kospeech.utils][INFO] - Epoch 33 Training result saved as a csv file complete !!
+[2022-04-29 08:22:30,358][kospeech.utils][INFO] - Epoch 34 start
+[2022-04-29 08:22:52,346][kospeech.utils][INFO] - step:   10/  62, loss: 1.750405, cer: 0.42, elapsed: 21.98s 0.37m 0.04h, lr: 0.000100
+[2022-04-29 08:23:13,916][kospeech.utils][INFO] - step:   20/  62, loss: 1.560016, cer: 0.43, elapsed: 21.57s 0.73m 0.05h, lr: 0.000100
+[2022-04-29 08:23:34,738][kospeech.utils][INFO] - step:   30/  62, loss: 1.693169, cer: 0.43, elapsed: 20.82s 1.07m 0.06h, lr: 0.000100
+[2022-04-29 08:23:53,049][kospeech.utils][INFO] - step:   40/  62, loss: 1.653994, cer: 0.43, elapsed: 18.31s 1.38m 0.06h, lr: 0.000100
+[2022-04-29 08:24:17,004][kospeech.utils][INFO] - step:   50/  62, loss: 1.857239, cer: 0.43, elapsed: 23.95s 1.78m 0.07h, lr: 0.000100

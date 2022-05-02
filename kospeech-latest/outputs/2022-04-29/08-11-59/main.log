@@ -1,0 +1,75 @@
+[2022-04-29 08:11:59,980][kospeech.utils][INFO] - audio:
+  audio_extension: pcm
+  sample_rate: 16000
+  frame_length: 20
+  frame_shift: 10
+  normalize: true
+  del_silence: true
+  feature_extract_by: kaldi
+  time_mask_num: 4
+  freq_mask_num: 2
+  spec_augment: true
+  input_reverse: false
+  transform_method: fbank
+  n_mels: 80
+  freq_mask_para: 18
+model:
+  architecture: deepspeech2
+  teacher_forcing_ratio: 1.0
+  teacher_forcing_step: 0.0
+  min_teacher_forcing_ratio: 1.0
+  dropout: 0.3
+  bidirectional: false
+  joint_ctc_attention: false
+  max_len: 400
+  use_bidirectional: true
+  rnn_type: gru
+  hidden_dim: 1024
+  activation: hardtanh
+  num_encoder_layers: 3
+train:
+  dataset: kspon
+  dataset_path: /content/gdrive/MyDrive/음소인식project/project_dataset/kspone_relable
+  transcripts_path: /content/gdrive/MyDrive/음소인식project/project_dataset/kspone_relable/transcripts.txt
+  output_unit: character
+  batch_size: 32
+  save_result_every: 1000
+  checkpoint_every: 5000
+  print_every: 10
+  mode: train
+  num_workers: 4
+  use_cuda: true
+  num_threads: 2
+  init_lr_scale: 0.01
+  final_lr_scale: 0.05
+  max_grad_norm: 400
+  weight_decay: 1.0e-05
+  total_steps: 200000
+  seed: 777
+  resume: true
+  optimizer: adam
+  init_lr: 1.0e-06
+  final_lr: 1.0e-06
+  peak_lr: 0.0001
+  warmup_steps: 400
+  num_epochs: 70
+  reduction: mean
+  lr_scheduler: tri_stage_lr_scheduler
+
+[2022-04-29 08:12:00,014][kospeech.utils][INFO] - Operating System : Linux 5.4.188+
+[2022-04-29 08:12:00,014][kospeech.utils][INFO] - Processor : x86_64
+[2022-04-29 08:12:00,016][kospeech.utils][INFO] - device : Tesla T4
+[2022-04-29 08:12:00,016][kospeech.utils][INFO] - CUDA is available : True
+[2022-04-29 08:12:00,016][kospeech.utils][INFO] - CUDA version : 11.3
+[2022-04-29 08:12:00,016][kospeech.utils][INFO] - PyTorch version : 1.11.0+cu113
+[2022-04-29 08:12:00,033][kospeech.utils][INFO] - split dataset start !!
+[2022-04-29 08:12:00,069][kospeech.utils][INFO] - Applying Spec Augmentation...
+[2022-04-29 08:12:00,071][kospeech.utils][INFO] - Applying Spec Augmentation...
+[2022-04-29 08:12:00,072][kospeech.utils][INFO] - Applying Spec Augmentation...
+[2022-04-29 08:12:00,074][kospeech.utils][INFO] - Applying Spec Augmentation...
+[2022-04-29 08:12:00,076][kospeech.utils][INFO] - split dataset complete !!
+[2022-04-29 08:12:00,095][kospeech.utils][INFO] - load checkpoints
+../../../outputs/2202-04-30/22-41-00/trainer_states.pt
+../../../outputs/2202-04-30/22-41-00/model.pt
+[2022-04-29 08:12:05,187][kospeech.utils][INFO] - start
+[2022-04-29 08:12:05,187][kospeech.utils][INFO] - Epoch 33 start

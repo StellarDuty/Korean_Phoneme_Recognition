@@ -1,0 +1,87 @@
+[2022-04-29 07:37:57,780][kospeech.utils][INFO] - audio:
+  audio_extension: pcm
+  sample_rate: 16000
+  frame_length: 20
+  frame_shift: 10
+  normalize: true
+  del_silence: true
+  feature_extract_by: kaldi
+  time_mask_num: 4
+  freq_mask_num: 2
+  spec_augment: true
+  input_reverse: false
+  transform_method: fbank
+  n_mels: 80
+  freq_mask_para: 18
+model:
+  architecture: deepspeech2
+  teacher_forcing_ratio: 1.0
+  teacher_forcing_step: 0.0
+  min_teacher_forcing_ratio: 1.0
+  dropout: 0.3
+  bidirectional: false
+  joint_ctc_attention: false
+  max_len: 400
+  use_bidirectional: true
+  rnn_type: gru
+  hidden_dim: 1024
+  activation: hardtanh
+  num_encoder_layers: 3
+train:
+  dataset: kspon
+  dataset_path: /content/gdrive/MyDrive/음소인식project/project_dataset/kspone_relable
+  transcripts_path: /content/gdrive/MyDrive/음소인식project/project_dataset/kspone_relable/transcripts.txt
+  output_unit: character
+  batch_size: 4
+  save_result_every: 1000
+  checkpoint_every: 5000
+  print_every: 10
+  mode: train
+  num_workers: 4
+  use_cuda: true
+  num_threads: 2
+  init_lr_scale: 0.01
+  final_lr_scale: 0.05
+  max_grad_norm: 400
+  weight_decay: 1.0e-05
+  total_steps: 200000
+  seed: 777
+  resume: true
+  optimizer: adam
+  init_lr: 1.0e-06
+  final_lr: 1.0e-06
+  peak_lr: 0.0001
+  warmup_steps: 400
+  num_epochs: 70
+  reduction: mean
+  lr_scheduler: tri_stage_lr_scheduler
+
+[2022-04-29 07:37:57,803][kospeech.utils][INFO] - Operating System : Linux 5.4.188+
+[2022-04-29 07:37:57,803][kospeech.utils][INFO] - Processor : x86_64
+[2022-04-29 07:37:57,803][kospeech.utils][INFO] - CUDA is available : False
+[2022-04-29 07:37:57,804][kospeech.utils][INFO] - PyTorch version : 1.11.0+cu113
+[2022-04-29 07:37:57,834][kospeech.utils][INFO] - load checkpoints
+../../../outputs/2202-04-30/22-41-00/trainer_states.pt
+../../../outputs/2202-04-30/22-41-00/model.pt
+[2022-04-29 07:38:04,513][kospeech.utils][INFO] - start
+[2022-04-29 07:38:04,514][kospeech.utils][INFO] - Epoch 33 start
+[2022-04-29 07:38:04,719][kospeech.utils][INFO] - Audio is None : /content/gdrive/MyDrive/work_space/kospeech-latest/kspondataset/train/KsponSpeech_01/KsponSpeech_0010/KsponSpeech_009845.pcm
+[2022-04-29 07:38:04,719][kospeech.utils][INFO] - Audio is None : /content/gdrive/MyDrive/work_space/kospeech-latest/kspondataset/train/KsponSpeech_01/KsponSpeech_0032/KsponSpeech_031227.pcm
+[2022-04-29 07:38:04,719][kospeech.utils][INFO] - Audio is None : /content/gdrive/MyDrive/work_space/kospeech-latest/kspondataset/train/KsponSpeech_01/KsponSpeech_0019/KsponSpeech_018303.pcm
+[2022-04-29 07:38:04,720][kospeech.utils][INFO] - Audio is None : /content/gdrive/MyDrive/work_space/kospeech-latest/kspondataset/train/KsponSpeech_01/KsponSpeech_0020/KsponSpeech_019074.pcm
+[2022-04-29 07:38:04,721][kospeech.utils][INFO] - Audio is None : /content/gdrive/MyDrive/work_space/kospeech-latest/kspondataset/train/KsponSpeech_01/KsponSpeech_0025/KsponSpeech_024792.pcm
+[2022-04-29 07:38:04,721][kospeech.utils][INFO] - Audio is None : /content/gdrive/MyDrive/work_space/kospeech-latest/kspondataset/train/KsponSpeech_01/KsponSpeech_0022/KsponSpeech_021640.pcm
+[2022-04-29 07:38:04,721][kospeech.utils][INFO] - Audio is None : /content/gdrive/MyDrive/work_space/kospeech-latest/kspondataset/train/KsponSpeech_01/KsponSpeech_0038/KsponSpeech_037771.pcm
+[2022-04-29 07:38:04,721][kospeech.utils][INFO] - Audio is None : /content/gdrive/MyDrive/work_space/kospeech-latest/kspondataset/train/KsponSpeech_01/KsponSpeech_0048/KsponSpeech_047732.pcm
+[2022-04-29 07:38:04,722][kospeech.utils][INFO] - Audio is None : /content/gdrive/MyDrive/work_space/kospeech-latest/kspondataset/train/KsponSpeech_01/KsponSpeech_0038/KsponSpeech_037116.pcm
+[2022-04-29 07:38:04,722][kospeech.utils][INFO] - Audio is None : /content/gdrive/MyDrive/work_space/kospeech-latest/kspondataset/train/KsponSpeech_01/KsponSpeech_0031/KsponSpeech_030019.pcm
+[2022-04-29 07:38:04,722][kospeech.utils][INFO] - Audio is None : /content/gdrive/MyDrive/work_space/kospeech-latest/kspondataset/train/KsponSpeech_01/KsponSpeech_0034/KsponSpeech_033299.pcm
+[2022-04-29 07:38:04,722][kospeech.utils][INFO] - Audio is None : /content/gdrive/MyDrive/work_space/kospeech-latest/kspondataset/train/KsponSpeech_01/KsponSpeech_0012/KsponSpeech_011691.pcm
+[2022-04-29 07:38:04,723][kospeech.utils][INFO] - Audio is None : /content/gdrive/MyDrive/work_space/kospeech-latest/kspondataset/train/KsponSpeech_01/KsponSpeech_0009/KsponSpeech_008319.pcm
+[2022-04-29 07:38:04,723][kospeech.utils][INFO] - Audio is None : /content/gdrive/MyDrive/work_space/kospeech-latest/kspondataset/train/KsponSpeech_01/KsponSpeech_0036/KsponSpeech_035483.pcm
+[2022-04-29 07:38:04,723][kospeech.utils][INFO] - Audio is None : /content/gdrive/MyDrive/work_space/kospeech-latest/kspondataset/train/KsponSpeech_01/KsponSpeech_0046/KsponSpeech_045585.pcm
+[2022-04-29 07:38:04,723][kospeech.utils][INFO] - Audio is None : /content/gdrive/MyDrive/work_space/kospeech-latest/kspondataset/train/KsponSpeech_01/KsponSpeech_0048/KsponSpeech_047300.pcm
+[2022-04-29 07:38:08,142][kospeech.utils][INFO] - save checkpoints
+/content/gdrive/MyDrive/음소인식project/kospeech-latest/outputs/2022-04-29/07-37-57/2022_04_29_07_38_04-trainer_states.pt
+/content/gdrive/MyDrive/음소인식project/kospeech-latest/outputs/2022-04-29/07-37-57/2022_04_29_07_38_04-model.pt
+[2022-04-29 07:38:08,142][kospeech.utils][INFO] - train() completed
